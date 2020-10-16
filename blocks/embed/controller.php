@@ -30,7 +30,20 @@ class Controller extends BlockController
 
     public function view()
     {
-        $this->set('info', Embed::create($this->source));
+        //$this->set('info', Embed::create($this->source));
+
+        try {
+            $info = Embed::create($this->source);
+
+        } catch (Exception $e) {
+            $info = null;
+            return $e->getMessage();
+        }
+
+        if (is_object($info)) {
+            $this->set('info', $info);
+        }
+
     }
 
     public function validate($args)

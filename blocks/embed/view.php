@@ -1,5 +1,8 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
-/** @var \Embed\Adapters\Adapter $info */ ?>
+/** @var \Embed\Adapters\Adapter $info */
+$url = isset($source) ? $source : null;
+if(isset($info)){
+?>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="media">
@@ -17,3 +20,9 @@
         </div>
     </div>
 </div>
+<?php
+    }else{?>
+    <a href="<?= h($url) ?>" style="width: 200px; display: block"><?= $url;?></a>
+<?php
+}
+?>
