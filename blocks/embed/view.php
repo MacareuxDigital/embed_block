@@ -22,7 +22,6 @@ if(isset($info)){
 </div>
 <?php
     }else{?>
-    <a href="<?= h($url) ?>" style="width: 200px; display: block"><?= $url;?></a>
+    <a href="<?= h($url) ?>"><?= h($url)?></a>
 <?php
-}
-?>
+} ?>
