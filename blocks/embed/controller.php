@@ -30,7 +30,15 @@ class Controller extends BlockController
 
     public function view()
     {
-        $this->set('info', Embed::create($this->source));
+        try {
+            $info = Embed::create($this->source);
+        } catch (\Exception $e) {
+            $info = null;
+        }
+
+        if (is_object($info)) {
+            $this->set('info', $info);
+        }
     }
 
     public function validate($args)
@@ -51,4 +59,5 @@ class Controller extends BlockController
         $args['source'] = isset($data['source']) ? $sanitizer->sanitizeURL($data['source']) : '';
         parent::save($args);
     }
+
 }
