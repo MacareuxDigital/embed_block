@@ -1,0 +1,18 @@
+Index: blocks/embed/controller.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nnamespace Concrete\\Package\\EmbedBlock\\Block\\Embed;\n\nuse Concrete\\Core\\Block\\BlockController;\nuse Concrete\\Core\\Error\\ErrorList\\ErrorList;\nuse Concrete\\Core\\Validation\\SanitizeService;\nuse Embed\\Embed;\n\nclass Controller extends BlockController\n{\n    protected $btTable = 'btEmbed';\n    protected $btDefaultSet = 'multimedia';\n    protected $btWrapperClass = 'ccm-ui';\n    protected $btCacheBlockOutput = true;\n    protected $btCacheBlockOutputLifetime = 86400; // check every day\n    protected $btCacheBlockOutputOnPost = true;\n    protected $btCacheBlockOutputForRegisteredUsers = true;\n    /** @var string */\n    protected $source;\n\n    public function getBlockTypeName()\n    {\n        return t('Embed');\n    }\n\n    public function getBlockTypeDescription()\n    {\n        return t('Show information of URL.');\n    }\n\n    public function view()\n    {\n        //$this->set('info', Embed::create($this->source));\n\n        try {\n            $info = Embed::create($this->source);\n\n        } catch (Exception $e) {\n            $info = null;\n            return $e->getMessage();\n        }\n\n        if (is_object($info)) {\n            $this->set('info', $info);\n        }\n\n    }\n\n    public function validate($args)\n    {\n        /** @var ErrorList $e */\n        $e = $this->app->make('helper/validation/error');\n        if (!isset($args['source']) || empty($args['source'])) {\n            $e->add(t('You must input a URL of the source.'));\n        }\n\n        return $e;\n    }\n\n    public function save($data)\n    {\n        /** @var SanitizeService $sanitizer */\n        $sanitizer = $this->app->make('helper/security');\n        $args['source'] = isset($data['source']) ? $sanitizer->sanitizeURL($data['source']) : '';\n        parent::save($args);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- blocks/embed/controller.php	(revision f4b80f06f4b93009770ffe25bd3c9adaeca2a3e6)
++++ blocks/embed/controller.php	(date 1603003537866)
+@@ -37,7 +37,7 @@
+ 
+         } catch (Exception $e) {
+             $info = null;
+-            return $e->getMessage();
++            //return $e->getMessage();
+         }
+ 
+         if (is_object($info)) {
