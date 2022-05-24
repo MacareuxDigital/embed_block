@@ -7,9 +7,10 @@ $source = isset($source) ? $source : '';
     <div class="form-group row py-sm-3 mb-0">
         <?= $form->label('url', t('URL')); ?>
         <?= $form->url('source', $source); ?>
-        <br>
+    </div>
+    <div class="form-group">
         <?= $form->label('page_selector', t('Choose Page:')); ?>
-        <?= $form->button('page_selector', 'Sitemap',array(),'ccm-item-selector'); ?>
+        <?= $form->button('page_selector', 'Sitemap',array(),'ccm-item-selector btn-secondary'); ?>
     </div>
 </div>
 
