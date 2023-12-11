@@ -8,7 +8,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'embed_block';
     protected $appVersionRequired = '8.5.4';
-    protected $pkgVersion = '0.1';
+    protected $pkgVersion = '0.1.1';
 
     public function getPackageName()
     {
