@@ -1,9 +1,14 @@
 {
-    "name": "concrete5cojp/embed_block",
+    "name": "macareux_digital/embed_block",
     "description": "A package to add Embed block type.",
     "type": "concrete5-package",
     "license": "MIT",
     "require": {
-        "embed/embed": "v3.x"
+        "embed/embed": "v4.x"
+    },
+    "replace": {
+        "psr/http-client": "*",
+        "psr/http-factory": "*",
+        "psr/http-message": "*"
     }
 }

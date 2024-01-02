@@ -6,7 +6,7 @@ use Concrete\Core\Error\ErrorList\ErrorList;
 use Concrete\Core\Page\Page;
 use Concrete\Core\Support\Facade\Application;
 use Concrete\Core\Validation\SanitizeService;
-use Embed\Embed;
+use Magareux\EmbedBlock\Embed;
 
 class Controller extends BlockController
 {

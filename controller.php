@@ -7,8 +7,12 @@ use Concrete\Core\Package\Package;
 class Controller extends Package
 {
     protected $pkgHandle = 'embed_block';
-    protected $appVersionRequired = '8.5.4';
-    protected $pkgVersion = '0.1.1';
+    protected $appVersionRequired = '9.0.0';
+    protected $pkgVersion = '0.2.0';
+    protected $phpVersionRequired = '7.4.0';
+    protected $pkgAutoloaderRegistries = [
+        'src' => '\Magareux\EmbedBlock',
+    ];
 
     public function getPackageName()
     {

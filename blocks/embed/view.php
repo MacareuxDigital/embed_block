@@ -1,5 +1,5 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
-/** @var \Embed\Adapters\Adapter $info */
+/** @var \Magareux\EmbedBlock\Embed $info */
 $url = isset($source) ? $source : null;
 if(isset($info)){
 ?>
